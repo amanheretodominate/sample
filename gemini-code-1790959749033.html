@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm So Sorry, Ananyaa ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffe6f2, #ffb3d9, #ffcce6);
+            color: #4a2e35;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            min-height: 100vh;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        @media(min-width: 600px) {
+            .container {
+                min-height: 85vh;
+                border-radius: 25px;
+                margin: 20px 0;
+            }
+        }
+
+        .music-banner {
+            background: #fff0f5;
+            border: 1px solid #ff99cc;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(255, 51, 133, 0.1);
+        }
+
+        .music-banner button {
+            background: #ff3385;
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .page {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            animation: fadeIn 0.6s ease-in-out;
+            flex-grow: 1;
+            justify-content: center;
+        }
+
+        .page.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Sacramento', cursive;
+            font-size: 3.5rem;
+            color: #ff3385;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #cc0066;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #66334d;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        .heart-icon {
+            font-size: 4rem;
+            color: #ff3385;
+            animation: heartbeat 1.2s infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff3385, #ff66b2);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 51, 133, 0.4);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(255, 51, 133, 0.6);
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 25px;
+            padding: 0 10px;
+        }
+
+        .letter-box {
+            background: #fff0f5;
+            border: 2px dashed #ff99cc;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: left;
+            max-height: 300px;
+            overflow-y: auto;
+            width: 100%;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .letter-box p {
+            text-align: left;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .promise-box {
+            background: #fff0f5;
+            border: 2px dashed #ff99cc;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: left;
+            width: 100%;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .promise-box p {
+            text-align: left;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .choices {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+            position: relative;
+            width: 100%;
+            min-height: 60px;
+        }
+
+        #yesBtn {
+            background: #28a745;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+        }
+
+        #yesBtn:hover {
+            box-shadow: 0 7px 20px rgba(40, 167, 69, 0.6);
+        }
+
+        #noBtn {
+            background: #dc3545;
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+            position: relative;
+            transition: 0.2s ease;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #996680;
+        }
+
+        /* Floating background hearts */
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 51, 133, 0.2);
+            font-size: 1.5rem;
+            animation: floatUp 6s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Audio - Arpit Bala Song -->
+    <audio id="bgMusic" loop>
+        <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kevin_MacLeod/Romantic/Kevin_MacLeod_-_First_Light.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Background Floating Hearts -->
+    <div class="floating-heart" style="left: 10%; animation-delay: 0s;">❤️</div>
+    <div class="floating-heart" style="left: 30%; animation-delay: 2s;">💖</div>
+    <div class="floating-heart" style="left: 50%; animation-delay: 4s;">💗</div>
+    <div class="floating-heart" style="left: 70%; animation-delay: 1s;">💓</div>
+    <div class="floating-heart" style="left: 90%; animation-delay: 3s;">💞</div>
+
+    <div class="container">
+        
+        <!-- Music Player Banner -->
+        <div class="music-banner">
+            <span>🎵 Arpit Bala - Rakhlo Tum Chupaake</span>
+            <button id="musicToggleBtn" onclick="toggleMusic()">Play Music ▶</button>
+        </div>
+
+        <!-- PAGE 1: Welcome -->
+        <div class="page active" id="page1">
+            <div class="heart-icon">🥺</div>
+            <h1>Hey Ananyaa...</h1>
+            <p>Mujhe pata hai maine galti ki hai aur tumse thoda daant khane wala kaam kiya hai. Par please yeh chota sa safar mere sath tay karo, kyunki mere liye tum sabse zyada important ho.</p>
+            <button class="btn" onclick="playMusicAndNext(2)">Aage Dekho ❤️</button>
+        </div>
+
+        <!-- PAGE 2: The Apology Letter -->
+        <div class="page" id="page2">
+            <h2>Ek Pyara Sa Sorry Letter</h2>
+            <div class="letter-box">
+                <p>Merii pyaari Ananyaa,</p>
+                <p>I know, mujhse galti hui hai. Aapne mana kiya tha bahar ka khane se aur maine phir bhi kha liya… so yes, I deserve that gussa. 😭</p>
+                <p>But sach bolun, mera tumhe upset karne ka bilkul intention nahi tha. Kabhi-kabhi main thoda stupid behave kar deta hoon, but that doesn’t mean I don’t care about what you say.</p>
+                <p>I’m sorry, meri jaanu 🥰<br>Bas ab ye cute sa gussa thoda kam kar do na. I really don’t like it when you’re upset with me. ❤️</p>
+                <p>Sorryyyyyyy maan jaoo plzzzz ..</p>
+                <p style="text-align: right; margin-top: 10px; font-weight: 600; color: #ff3385;">— Aapka Bhondu</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn" onclick="nextPage(1)">Piche</button>
+                <button class="btn" onclick="playMusicAndNext(3)">Aage</button>
+            </div>
+        </div>
+
+        <!-- PAGE 3: Promises -->
+        <div class="page" id="page3">
+            <h2>Mere Kuch Promises 🤝</h2>
+            <div class="promise-box">
+                <p>✨ I promise ki aage se tumhari baat ko lightly nahi lunga.</p>
+                <p>✨ Kabhi-kabhi mujhse galti ho jaati hai but I promise ki jaan bujhkar kabhi tumhe disappoint nahi karunga.</p>
+                <p>✨ I promise ki perfect toh shayad main kabhi nahi ban paunga, but I’ll always try to be a little better for you.</p>
+                <p>✨ Aur haan… next time bahar ka khana hua na, toh pehle tumhari permission. 😭😂<br><strong>Pakka promise.❤️</strong></p>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn" onclick="nextPage(2)">Piche</button>
+                <button class="btn" onclick="playMusicAndNext(4)">Aage</button>
+            </div>
+        </div>
+
+        <!-- PAGE 4: Forgiveness Question -->
+        <div class="page" id="page4">
+            <div class="heart-icon">💞</div>
+            <h2>Kya Tum Mujhe Maaf Karogi?</h2>
+            <p>Mujhe pata hai main kabhi-kabhi aisi harkatein kar deta hu, par tum mera sachha pyaar ho. Kya tum mujhe apna yeh naadaan boyfrnd samajh kar maaf kar dogi?</p>
+            <div class="choices">
+                <button class="btn" id="yesBtn" onclick="playMusicAndNext(5)">Haan, Maaf Kiya! 🥰</button>
+                <button class="btn" id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">Nahi! 😤</button>
+            </div>
+            <div class="nav-buttons" style="margin-top: 15px;">
+                <button class="btn" onclick="nextPage(3)" style="font-size: 0.9rem; padding: 8px 20px;">Piche</button>
+            </div>
+        </div>
+
+        <!-- PAGE 5: Success / Celebration -->
+        <div class="page" id="page5">
+            <div class="heart-icon">🎉</div>
+            <h1>YAYYY FINALLYY AAP MAAN GYEE😋😋</h1>
+            <p>Mujhe pata tha meri jaan bohot achhi hai aur mujhe samajhti hai! I promise abse bahar ka khane se pehle 10 baar sochuunga aur tumhe kabhi pareshaan nahi karunga. I Love You So Much! ❤️✨</p>
+            <button class="btn" onclick="nextPage(1)">Shuru se dekho 🔄</button>
+        </div>
+
+        <div class="footer-nav">
+            <span id="pageIndicator">Page 1 of 5</span>
+        </div>
+
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 5;
+        const bgMusic = document.getElementById('bgMusic');
+        const musicToggleBtn = document.getElementById('musicToggleBtn');
+        let isMusicPlaying = false;
+
+        function playMusicAndNext(pageNum) {
+            // Automatically trigger music on first interaction if not playing
+            if (!isMusicPlaying) {
+                bgMusic.play().then(() => {
+                    isMusicPlaying = true;
+                    musicToggleBtn.innerText = "Pause Music ⏸";
+                }).catch(e => {
+                    console.log("Audio play blocked/failed", e);
+                });
+            }
+            nextPage(pageNum);
+        }
+
+        function toggleMusic() {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                isMusicPlaying = false;
+                musicToggleBtn.innerText = "Play Music ▶";
+            } else {
+                bgMusic.play().then(() => {
+                    isMusicPlaying = true;
+                    musicToggleBtn.innerText = "Pause Music ⏸";
+                }).catch(e => {
+                    console.log("Audio play blocked", e);
+                });
+            }
+        }
+
+        function nextPage(pageNum) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById('page' + pageNum).classList.add('active');
+            currentPage = pageNum;
+            document.getElementById('pageIndicator').innerText = `Page ${currentPage} of ${totalPages}`;
+        }
+
+        function moveNoButton() {
+            const noBtn = document.getElementById('noBtn');
+            const x = Math.random() * 160 - 80;
+            const y = Math.random() * 80 - 40;
+            noBtn.style.transform = `translate(${x}px, ${y}px)`;
+        }
+    </script>
+</body>
+</html>
